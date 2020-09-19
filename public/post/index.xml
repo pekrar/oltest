@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Øltest</title>
+    
+    
+    
+    <link>/post/</link>
+    <description>Recent content in Posts on Øltest</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Den andre øltesten</title>
+      <link>/post/test-2/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/test-2/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Den andre øltestestenpå Hjartdal øl- og guttefestival 2020 var en heidundrende suksess, og viste at selv under primitive forhold kan man drikke og vurdere øl. Resultatet fra den testen ser slik utDe fem ølene som var med i begge testene har samme plassering i forhold til hverandret i begge testene. Det gir kredibilitet til testene, og antyder at det ikke bare er tøys og tull.
+Heineken og Hansa gjør det bedre i denne testen enn i den forrige, mens både Tuborg og Ringnes faller noe.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Den første øltesten</title>
+      <link>/post/test-1/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/test-1/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Den første øltestenDen første øltesten ble avholdt hjemme hos Markus og Ann Helen den 23. mai. Det var utfordrende å lage et opplegg som fungerte, særlig å sørge for at ingen visste hvilken øl som ble drukket der og da. Med god hjelp fra Ann Helen fikk vi det allikevel til, og hadde en hyggelig helaften.
+Det mest bemerkelsesverdige ved den første testen sammenliknet med den sammenlagte, er at rekkefølgen på ølene som ble testet første gang er uforandret i den sammenlagte oversikten.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>En nettside for øltester</title>
+      <link>/post/en-nettside-for-%C3%B8ltester/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/en-nettside-for-%C3%B8ltester/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Velkommen til øltestenes hjem!Denne ølstesten skal vise data fra øltestene. Individuelle og sammenlagte resultater, så vel som resultater fra hver test og analyser over tid skal legges til etter hvert.
+
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

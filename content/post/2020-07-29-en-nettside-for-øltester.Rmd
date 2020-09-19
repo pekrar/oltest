@@ -1,0 +1,21 @@
+---
+title: "En nettside for øltester"
+author: "Petter Kristiansen Arnesen"
+date: '2020-07-29'
+slug: en-nettside-for-øltester
+output: html_document
+categories:
+  - Øl
+tags:
+  - øltest
+  - Øl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+## Velkommen til øltestenes hjem!
+
+Denne ølstesten skal vise data fra øltestene. Individuelle og sammenlagte resultater, så vel som resultater fra hver test og analyser over tid skal legges til etter hvert.  
+

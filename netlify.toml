@@ -1,0 +1,66 @@
+baseurl = "/"#wizardly-boyd-c3050a.netlify.app
+languageCode = "en-us"
+theme = "hugo-theme-hello-friend"
+paginate = 5
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+[build] 
+  publish = "public"
+  command = "hugo"
+
+[context.production.environment]
+  HUGO_VERSION = "0.74.2" # if older, use format: 0.53 (no trailing zero)
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
+  
+[context.branch-deploy.environment]
+  HUGO_VERSION = "0.74.2" # if older, use format: 0.53 (no trailing zero)
+
+[context.deploy-preview.environment]
+  HUGO_VERSION = "0.74.2"
+[params]
+  # dir name of your blog content (default is `content/posts`)
+  contentTypeName = "post"
+  # "light" or "dark"
+  defaultTheme = "dark"
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
+  # Enable to show reading time in minutes for posts
+  showReadingTime = false
+
+[languages]
+  [languages.en]
+    title = "Øltest"
+    subtitle = "A simple theme for Hugo"
+    keywords = ""
+    copyright = ""
+    menuMore = "Vis mer"
+    writtenBy = "Av"
+    readMore = "Mer"
+    readOtherPosts = "Andre innlegg"
+    newerPosts = "Nyere innlegg"
+    olderPosts = "Eldre innlegg"
+    minuteReadingTime = "min read"
+    dateFormatSingle = "2006-01-02"
+    dateFormatList = "2006-01-02"
+
+    [languages.en.params.logo]
+      logoText = "øltest"
+      logoHomeLink = "/"
+    # or
+    #
+    # path = "/img/your-example-logo.svg"
+    # alt = "Your example logo alt text"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "Om testene"
+        url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "Sammenlagt"
+        name = "Sammenlagt"
+        url = "/sammenlagt"
+        [[languages.en.menu.main]]
+        identifier = "Profiler"
+        name = "Profiler"
+        url = "/profiler"

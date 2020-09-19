@@ -1,0 +1,57 @@
+---
+title: "Den andre øltesten"
+author: "Petter Kristiansen Arnesen"
+date: "2020-07-31"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Den andre øltestesten
+
+på Hjartdal øl- og guttefestival 2020 var en heidundrende suksess, og viste at selv under primitive forhold kan man drikke og vurdere øl. Resultatet fra den testen ser slik ut 
+```{r Andre test, echo = FALSE, fig.width = 9, warning=FALSE, message=FALSE}
+
+library(plyr)
+library(tidyr)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+library(ggdark)
+#rm(list = ls())
+
+#setwd("C:/Users/pekra/OneDrive/Desktop/Øltest")
+
+#Ølscore long-format
+org <- read_excel("C:/Users/pekra/OneDrive/oltest-longformat.xlsx")
+df2 <- org                              %>%
+  filter(dato == "11.7.2020")           %>% 
+  filter(score != is.na(score))         %>%
+  group_by(øl)                          %>%
+  mutate(snitt = mean(score, na.rm=T))  %>%
+  mutate(total = sum(score, na.rm=T))  
+
+nøl <- count(df2, øl)
+colnames(nøl) <-c("øl", "count")
+df2 <- merge(df2, nøl, by = "øl")
+
+positions2 <- c("tuborg classic",    "tuborg", "ringnes", "isbjørn", 
+                "heineken",          "hansa",  "seidel",  "sagene",  
+                "urquell",           "frydenlund")
+
+p3 <- ggplot(data=df2, aes(x = øl, y = score/count, fill = tester)) +    
+  geom_bar(stat="identity") +
+  scale_x_discrete(limits = positions2) +
+  scale_color_brewer(palette="Paired") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(y = "snittscore", x = "") +
+  ggtitle("øltest 11.7.2020") 
+p3
+```
+
+De fem ølene som var med i begge testene har samme plassering i forhold til hverandret i begge testene. Det gir kredibilitet til testene, og antyder at det ikke *bare* er tøys og tull. 
+
+Heineken og Hansa gjør det bedre i denne testen enn i den forrige, mens både Tuborg og Ringnes faller noe. Det er jevnere i toppen blant pilsene, selv om rekkefølgen er uendret. På bunn er det også stabilt, og både Pokal og Frydenling smaker mig. Urquell overrasker med den lunkne plasseringa. 

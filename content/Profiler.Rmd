@@ -1,0 +1,131 @@
+---
+title: "Profiler"
+author: "Petter Kristiansen Arnesen"
+date: "8/18/2020"
+output: html_notebook
+---
+
+```{r setup, include=F, eval=T}
+knitr::opts_chunk$set(echo = F)
+```
+
+## Profiler
+
+Her finner du smaksprofiler for de ulike guttene som har deltatt i øltester. Profilene presenteres alfabetisk, og starter derfor med Alvin "Torbjørn Lillelien" Haukedal Gusfre.
+
+### Alvins ølsmak
+
+```{r Alvin-plot, echo = FALSE, fig.width = 9, warning=FALSE, message=FALSE}
+
+library(plyr)
+library(tidyr)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+library(ggdark)
+#rm(list = ls())
+
+#setwd("C:/Users/pekra/OneDrive/Desktop/Øltest")
+
+#Ølscore long-format
+dsa <- read_excel("C:/Users/pekra/OneDrive/oltest-longformat.xlsx")
+dsa$datotester <- paste(dsa$tester,dsa$dato)
+# Lager variabel for antall ganger en øl er gitt score. Trengs for vekting. 
+colnames(dsa) <- c("ol", "dato", "tester", "score", "datotester", "count")
+dsa1 <- dsa                             %>% 
+  filter(score != is.na(score))         %>%
+  filter(tester == "alvin")             %>%   # Fjerner NAs for å lage korrekt snitt. 
+  group_by(ol)                          %>%
+ # mutate(snitt = mean(score, na.rm=T))  %>%   # Lager gjennomsnitt
+  mutate(total = sum(score, na.rm=T))         # Lager sammenlagt score. 
+
+
+nol <- count(dsa1, ol)                         # Teller antall ganger en ol er testet. Trengs for vekting.  
+colnames(nol) <- c("ol", "count")
+dsa2 <- merge(dsa1, nol, by = "ol")               # Merger tilbake med ds.
+
+
+## Plot med ordnet X-akse, synkende. Merkelig nok vanskelig å få til uten å ordne manuelt. 
+positions1 <- c("aass", "tuborg",  "heineken",  "hansa","ringnes",   "carlsberg",  "pokal","frydenlund","bare",  "dahls")
+
+# TOTALPLOT: ALLE VERDIER ER GÜt, FILL FUNGERER OSV. 
+p1 <- ggplot(data=dsa2, aes(x = ol, y = score/count, fill = datotester)) +
+  geom_bar(stat="identity") +
+  scale_x_discrete(limits = positions1) +
+  scale_color_brewer(palette="Paired") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(y = "snittscore", x = "") +
+  ggtitle("Alvins smaksprofil") #+
+#  theme(legend.position = "none")
+ 
+p1
+
+
+```
+
+Alvins smak ligger tett opp mot det sammenlagte resultatet, med Tuborg og Ringnes høyt oppe, og Frydenlund, Bare og Pokal på bunn. Alvin står for en stor del av Aass' totalsum - ingen andre har gitt Aass 5 poeng, og snittet for ølen ligger på 3 blank. 
+
+Fordi han er så hardarbeidende har Alvin kun vært med på en av to øltester så langt, så det er ikke så mye å si om hans longitudinelle smak. Dette på tross av at Alvin er en av fire grunnleggere av øltesten. Velkommen tilbake ved en annen anledning, kamerat! 
+
+### Ivans ølsmak
+
+Ivan har vært med på begge øltestene, og er både grunnlegger og scientist-in-chief for både det metodologiske grunnlaget og den praktiske gjennomføringen av øltestene. Hans ølsmak er som følger: 
+
+```{r Ivan-plot, echo = FALSE, fig.width = 9, warning=FALSE, message=FALSE}
+
+library(plyr)
+library(tidyr)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+library(ggdark)
+#rm(list = ls())
+
+#setwd("C:/Users/pekra/OneDrive/Desktop/Øltest")
+
+#Ølscore long-format
+dsi <- read_excel("C:/Users/pekra/OneDrive/oltest-longformat.xlsx")
+dsi$datotester <- paste(dsi$tester,dsi$dato)
+# Lager variabel for antall ganger en øl er gitt score. Trengs for vekting. 
+colnames(dsi) <- c("ol", "dato", "tester", "score", "datotester", "count")
+dsi1 <- dsi                             %>% 
+  filter(score != is.na(score))         %>%
+  filter(tester == "ivan")             %>%   # Fjerner NAs for å lage korrekt snitt. 
+  group_by(ol)                          %>%
+ # mutate(snitt = mean(score, na.rm=T))  %>%   # Lager gjennomsnitt
+  mutate(total = sum(score, na.rm=T))         # Lager sammenlagt score. 
+
+
+nol <- count(dsi1, ol)                         # Teller antall ganger en ol er testet. Trengs for vekting.  
+colnames(nol) <- c("ol", "count")
+dsi2 <- merge(dsi1, nol, by = "ol")               # Merger tilbake med ds.
+
+
+## Plot med ordnet X-akse, synkende. Merkelig nok vanskelig å få til uten å ordne manuelt. 
+positions1 <- c("bare", "tuborg", "heineken","aass",  "seidel", "tuborg classic", "urquell",  "carlsberg", "pokal",  "frydenlund", 
+                "ringnes",  "isbjørn", "sagene", "hansa" , "dahls")
+
+# TOTALPLOT: ALLE VERDIER ER GÜt, FILL FUNGERER OSV. 
+p1 <- ggplot(data=dsi2, aes(x = ol, y = score/count, fill = datotester)) +
+  geom_bar(stat="identity") +
+  scale_x_discrete(limits = positions1) +
+  scale_color_brewer(palette="Paired") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(y = "snittscore", x = "") +
+  ggtitle("Ivans smaksprofil") 
+ # theme(legend.position = "none")
+ 
+p1
+
+
+```
+
+Tross sin påståtte (påtatte?) bergenspatriotisme, liker Ivan *virkelig* ikke Hansa I begge testene har regnvannet fra regnbyen fått 1,5 poeng av Ivan, og det er bare Frydenlund smaker verre i kjeften (og det bare på én av testene!). Ellers er Ivan er generøs poenggiver. Sammenliknet med Alvin gir Ivan mange midt-på-treet-karakterer, og sparer enere og femmere til det virkelig gjelder. Ivan har per i dag delt ikke delt ut noen femmere, bare tre firere, og bare en eneste enslig enkel ener. 
+
+Watch this space, flere personprofiler kommer! 
+
+
+
+

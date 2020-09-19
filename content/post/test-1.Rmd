@@ -1,0 +1,57 @@
+---
+title: "Den første øltesten"
+author: "Petter Kristiansen Arnesen"
+date: "2020-07-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Den første øltesten
+
+Den første øltesten ble avholdt hjemme hos Markus og Ann Helen den 23. mai. Det var utfordrende å lage et opplegg som fungerte, særlig å sørge for at ingen visste hvilken øl som ble drukket der og da. Med god hjelp fra Ann Helen fikk vi det allikevel til, og hadde en hyggelig helaften. 
+
+
+```{r Første test, echo = FALSE, fig.width = 9, warning=FALSE, message=FALSE}
+
+library(plyr)
+library(tidyr)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+library(ggdark)
+#rm(list = ls())
+
+#setwd("C:/Users/pekra/OneDrive/Desktop/Øltest")
+
+#Ølscore long-format
+org <- read_excel("C:/Users/pekra/OneDrive/oltest-longformat.xlsx")
+df1 <- org                              %>%
+  filter(dato == "23.5.2020")           %>%
+  filter(score != is.na(score))         %>%
+  group_by(øl)                          %>%
+  mutate(snitt = mean(score, na.rm=T))  %>%
+  mutate(total = sum(score, na.rm=T)) 
+  
+nøl <- count(df1, øl)
+colnames(nøl) <-c("øl", "count")
+df1 <- merge(df1, nøl, by = "øl")
+
+positions2 <- c("tuborg",   "ringnes", "aass",  "carlsberg", 
+                "heineken", "bare",    "hansa", "frydenlund", 
+                "pokal")
+
+p2 <- ggplot(data=df1, aes(x = øl, y = score/count, fill = tester)) +
+  geom_bar(stat="identity") +
+  scale_x_discrete(limits = positions2) +
+  scale_color_brewer(palette="Paired") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(y = "snittscore", x = "") +
+  ggtitle("øltest 23.5.2020")
+p2
+```
+
+Det mest bemerkelsesverdige ved den første testen sammenliknet med den sammenlagte, er at rekkefølgen på ølene som ble testet første gang er uforandret i den sammenlagte oversikten. Tuborg er på topp tett fulgt av Ringnes og Aass, mens Pokal og Frydenlund er på bunn. Det tyder på at det er noe å hente i testene, og at guttene ikke gir poeng tilfeldig. 

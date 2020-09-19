@@ -1,0 +1,93 @@
+---
+title: "Sammenlagt øltest"
+author: "Petter Kristiansen Arnesen"
+date: "7/19/2020"
+output: html_notebook
+---
+
+```{r setup, include=FALSE, eval=F}
+knitr::opts_chunk$set(echo = F)
+```
+
+## Sammenlagt resultat à 11. juli 2020
+
+Etter at øltest nummer to gikk av stabelen på Hjartdal øl- og guttefestival 2020 ser det sammenlagte resultatet slik ut: 
+
+```{r Hovedplot, echo = FALSE, fig.width = 9, warning=FALSE, message=FALSE}
+
+library(plyr)
+library(tidyr)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+library(ggdark)
+#rm(list = ls())
+
+#setwd("C:/Users/pekra/OneDrive/Desktop/Øltest")
+
+#Ølscore long-format
+org <- read_excel("C:/Users/pekra/OneDrive/oltest-longformat.xlsx")
+ds <- org
+ds$datotester <- paste(ds$tester,ds$dato)
+# Lager variabel for antall ganger en øl er gitt score. Trengs for vekting. 
+colnames(ds) <- c("ol", "dato", "tester", "score", "datotester", "count")
+ds1 <- ds                               %>% 
+  filter(score != is.na(score))         %>%   # Fjerner NAs for å lage korrekt snitt. 
+  group_by(ol)                          %>%
+  mutate(snitt = mean(score, na.rm=T))  %>%   # Lager gjennomsnitt
+  mutate(total = sum(score, na.rm=T))         # Lager sammenlagt score. 
+
+
+nol <- count(ds1, ol)                         # Teller antall ganger en ol er testet. Trengs for vekting.  
+colnames(nol) <- c("ol", "count")
+ds <- merge(ds, nol, by = "ol")               # Merger tilbake med ds.
+
+## Plot med ordnet X-akse, synkende. Merkelig nok vanskelig å få til uten å ordne manuelt. 
+positions1 <- c("tuborg classic", "tuborg",  "heineken", "aass", "ringnes", 
+                "isbjørn",  "bare",  "carlsberg",       "seidel",  "sagene",  
+                "pokal","frydenlund", "hansa",          "urquell", "dahls"                )
+ 
+# TOTALPLOT: ALLE VERDIER ER GÜt, FILL FUNGERER OSV. 
+p1 <- ggplot(data=ds, aes(x = ol, y = score/count, fill = datotester)) +
+  geom_bar(stat="identity") +
+  scale_x_discrete(limits = positions1) +
+  scale_color_brewer(palette="Paired") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(y = "snittscore", x = "") +
+  ggtitle("sammenlagt øltest")   
+ 
+p1
+
+
+```
+
+Snittscore er summen av poeng hver øl har fått, delt på antall ganger den er drukket. Det kan uttrykkes slik:  
+
+$$\begin{aligned}snittscore(øl) = \frac{score(øl)_{tester 1} + score(øl)_{tester 2} + \ \cdots + score(øl)_{tester n}}{n_{drukket}(øl)}\end{aligned}$$
+
+Et øls snittscore forandres ikke dersom det avholdes en test uten det ølet. 
+Samtidig kompenseres det for at ulike antall gutter kan delta i ulike tester. Slik får ikke øl som testes ofte eller av mange deltakere et fortrinn. Merk også at hver gutts score ikke stemmer overens med Y-aksen. Fargedelingen gir bare uttrykk for hver gutts relative bidrag til ølets totalscore.
+
+Figuren viser at Tuborg-familien er klare favoritter. Grunnet en feil i innkjøpsprosedyren var Tuborg classic med i testen, selv om Tuborg classic er en fatøl og ikke en pils. Fatølen har en snittscore på hele 3,9, noe som antyder at fatøl og pils er lite sammenliknbare. 
+
+Den vanlige Tuborgen gjør det sterkt også om classic-versjonen diskavlifiseres, og leder med en snittscore på 3,67. Det er stor avstand ned til Ringnes med 3,11 og Aass med 3 blank. 
+
+På jumboplass ligger Pokal med stusselige 1,625. Pokals rævva rykte og gode pris gjør ikke det til noen overraskelse. At Frydenlund og Urquell ligger så nær bunnen er mer sjokkerende fordi de er dyre og høyt ansett. Videre gjør oslopilsen Sagene dårlig figur, mens regnbyens egne Hansa har havnet i dårlig selskap mellom Bare og Seidel.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

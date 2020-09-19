@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Øl on Øltest</title>
+    
+    
+    
+    <link>/categories/%C3%B8l/</link>
+    <description>Recent content in Øl on Øltest</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/%C3%B8l/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>En nettside for øltester</title>
+      <link>/post/en-nettside-for-%C3%B8ltester/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/en-nettside-for-%C3%B8ltester/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Velkommen til øltestenes hjem!Denne ølstesten skal vise data fra øltestene. Individuelle og sammenlagte resultater, så vel som resultater fra hver test og analyser over tid skal legges til etter hvert.
+
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

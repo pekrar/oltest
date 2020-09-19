@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Øltest</title>
+    
+    
+    
+    <link>/</link>
+    <description>Recent content on Øltest</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Den andre øltesten</title>
+      <link>/post/test-2/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/test-2/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Den andre øltestestenpå Hjartdal øl- og guttefestival 2020 var en heidundrende suksess, og viste at selv under primitive forhold kan man drikke og vurdere øl. Resultatet fra den testen ser slik utDe fem ølene som var med i begge testene har samme plassering i forhold til hverandret i begge testene. Det gir kredibilitet til testene, og antyder at det ikke bare er tøys og tull.
+Heineken og Hansa gjør det bedre i denne testen enn i den forrige, mens både Tuborg og Ringnes faller noe.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Den første øltesten</title>
+      <link>/post/test-1/</link>
+      <pubDate>Thu, 30 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/test-1/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Den første øltestenDen første øltesten ble avholdt hjemme hos Markus og Ann Helen den 23. mai. Det var utfordrende å lage et opplegg som fungerte, særlig å sørge for at ingen visste hvilken øl som ble drukket der og da. Med god hjelp fra Ann Helen fikk vi det allikevel til, og hadde en hyggelig helaften.
+Det mest bemerkelsesverdige ved den første testen sammenliknet med den sammenlagte, er at rekkefølgen på ølene som ble testet første gang er uforandret i den sammenlagte oversikten.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>En nettside for øltester</title>
+      <link>/post/en-nettside-for-%C3%B8ltester/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/en-nettside-for-%C3%B8ltester/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Velkommen til øltestenes hjem!Denne ølstesten skal vise data fra øltestene. Individuelle og sammenlagte resultater, så vel som resultater fra hver test og analyser over tid skal legges til etter hvert.
+
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Om øltester</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          ØLTEST er en jevnlig aktivitet hvor gutter kjøper øl, drikker øl, og gir poeng til øl. En øltest kan avholdes med to eller flere gutter, og med to eller flere øl. Det anbefales å holde øltest i sammenheng med fyll og fest, for eksempel som et vorspiel på dag to. Øltestens varighet avhenger av mengden gutter og øl, men kan gjerne vare i flere timer.
+En øltest begynner med at de deltakende guttene kjøper ulike øl av sammenliknbar type, for eksempel pilsnere.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Profiler</title>
+      <link>/profiler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/profiler/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          ProfilerHer finner du smaksprofiler for de ulike guttene som har deltatt i øltester. Profilene presenteres alfabetisk, og starter derfor med Alvin “Torbjørn Lillelien” Haukedal Gusfre.
+Alvins ølsmakAlvins smak ligger tett opp mot det sammenlagte resultatet, med Tuborg og Ringnes høyt oppe, og Frydenlund, Bare og Pokal på bunn. Alvin står for en stor del av Aass’ totalsum - ingen andre har gitt Aass 5 poeng, og snittet for ølen ligger på 3 blank.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Sammenlagt øltest</title>
+      <link>/sammenlagt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/sammenlagt/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Sammenlagt resultat à 11. juli 2020Etter at øltest nummer to gikk av stabelen på Hjartdal øl- og guttefestival 2020 ser det sammenlagte resultatet slik ut:
+Snittscore er summen av poeng hver øl har fått, delt på antall ganger den er drukket. Det kan uttrykkes slik:
+\[\begin{aligned}snittscore(øl) = \frac{score(øl)_{tester 1} + score(øl)_{tester 2} + \ \cdots + score(øl)_{tester n}}{n_{drukket}(øl)}\end{aligned}\]
+Et øls snittscore forandres ikke dersom det avholdes en test uten det ølet.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
